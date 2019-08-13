@@ -8,10 +8,10 @@ Após iniciar o projeto é feita a inserção automaticamente do arquivo CSV.
 
 O projeto disponibiliza solicitações via metodo GET através dos Links:
 
-- http://localhost:8080/movies-list
+- http://localhost:8080/movies-list 
 Retorna um json com todos os dados do banco de dados que foram inseridos a partir do CSV 
 
-- http://localhost:8080/producers-result
+- http://localhost:8080/producers-result 
 Obtém o produtor com maior intervalo entre dois prêmios, e o que obteve dois prêmios mais rápido.
 
 
