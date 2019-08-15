@@ -9,4 +9,6 @@ import br.com.ramon.gra.model.Movie;
 
 public interface MovieRepository extends JpaRepository<Movie, Long> {
 	
+	List<Movie> findByWinner(Boolean winner);
+	
 }

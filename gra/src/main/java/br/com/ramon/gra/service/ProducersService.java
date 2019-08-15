@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import br.com.ramon.gra.model.ProducerVO;
@@ -22,6 +23,7 @@ public class ProducersService {
 	@Autowired
 	private MovieRepository movieRepo;
 
+	@Cacheable("producers")
 	public ProducerVO getProducerResult() {
 		HashMap<String, List<Integer>> map = new HashMap<>();
 		ProducerVO producerResult = new ProducerVO();
@@ -38,7 +40,7 @@ public class ProducersService {
 	}
 
 	private void mapAllWinnerProducers(HashMap<String, List<Integer>> map) {
-		movieRepo.findAll().stream().filter(w -> w.isWinner()).forEach(m -> {
+		movieRepo.findByWinner(true).stream().forEach(m -> {
 
 			removeBrackets(m);
 
